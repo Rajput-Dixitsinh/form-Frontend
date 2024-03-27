@@ -13,7 +13,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   else{
     alert("Please Provide Valide Detail")
     const router = new Router();
-    router.navigate(['/login'])
+    router.navigate(['/login']);
     return false;
   }
 };

@@ -40,7 +40,7 @@ this.loginFrm = this.fb.group({
  this.loginFrm.reset()
     }, err => {
       console.error('Error while logging!', err);
-               this.router.navigate(['/login'])
+               this.router.navigate(['/register'])
     })
 
 } 

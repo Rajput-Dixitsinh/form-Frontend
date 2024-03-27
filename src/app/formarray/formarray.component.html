@@ -4,7 +4,6 @@
       <input type="text"  formControlName="resname" placeholder="Enter restaurant name">
     </div>
     <!-- menu -->
-    
     <div formArrayName="menu">
       <div *ngFor="let menu of menuArray().controls; let menuIndex = index" [formGroupName]="menuIndex">
         <div>
