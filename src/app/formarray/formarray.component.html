@@ -1,0 +1,111 @@
+<form [formGroup]="restaurantForm" (submit)="onSubmit()">
+    <div>
+      <label for="resname">Enter Restaurant Name:</label>
+      <input type="text"  formControlName="resname" placeholder="Enter restaurant name">
+    </div>
+    <!-- menu -->
+    
+    <div formArrayName="menu">
+      <div *ngFor="let menu of menuArray().controls; let menuIndex = index" [formGroupName]="menuIndex">
+        <div>
+          <label for="type">Enter Menu Type:</label>
+          <input type="text"  formControlName="restypes" placeholder="Enter menu type">
+        </div>
+        <div>
+          <label for="count">Enter Menu Count:</label>
+          <input type="text"  formControlName="count" placeholder="Enter menu count">
+        </div>
+          <!-- dish -->
+        
+  
+        <div formArrayName="dish">
+          <div *ngFor="let dish of getDishArray(menuIndex).controls; let dishIndex = index" [formGroupName]="dishIndex">
+            <div>
+              <label for="dishName">Enter Dish Name:</label>
+              <input type="text"  formControlName="dishName" placeholder="Enter dish name">
+            </div>
+            <div>
+              <label for="price">Enter Dish Price:</label>
+              <input type="text"  formControlName="price" placeholder="Enter Dish Price">
+            </div>
+           
+              <!-- offer -->
+            <div formArrayName="offer">
+              <div *ngFor="let offer of getOfferArray(menuIndex, dishIndex).controls; let offerIndex = index" [formGroupName]="offerIndex">
+                <div>
+                  <label for="offerName">Enter Offer Name:</label>
+                  <input type="text"  formControlName="offerName" placeholder="Enter offer name">
+                </div>
+                <div>
+                  <label for="discount">Enter Discount:</label>
+                  <input type="text"  formControlName="discount" placeholder="Enter discount">
+                </div>
+              
+  
+                 <!-- <div formArrayName="timestmp">
+                    <div *ngFor="let time of getTimestmpArray(menuIndex,dishIndex,offerIndex).controls ; let timeIndex = index" [formGroupName]="timeIndex">
+                      <div>
+                        <label for="timestmp">Enter TimeStemp:</label>
+                        <input type="text"  formControlName="timestmp" placeholder="Enter time">
+                      </div>
+                    </div>
+                 </div>
+                 <button type="button" (click)="addTimestmp(menuIndex, dishIndex,offerIndex)">Add time</button> -->
+              </div>
+              <button type="button" (click)="addOffer(menuIndex, dishIndex)">Add Offer</button>
+            </div>
+           
+  
+          </div>
+          <button type="button" (click)="addDish(menuIndex)">Add Dish</button>
+        </div>  
+        
+      </div>
+    </div>
+    <div class="button">
+      <button type="button" (click)="addMenu()">Add Menu</button>
+      <button type="button" (click)="getRestList()">Fetch</button>
+      <button type="submit">Submit</button>
+    </div>
+   
+  </form>
+  
+  
+  
+  <!-- Display Data-->
+  
+  
+  
+  <div class="container" >
+    <h3>Total Data : {{this.xyz}}</h3>
+    <div *ngFor="let restaurant of getdata; let index = index" class="restaurant-container">
+      <div class="restaurant-info">
+        <h4 class="resname">Restaurant Name : {{ restaurant.resname }}</h4>
+        <p class="menu-label">Menu :</p>
+        <div *ngFor="let resmenu of restaurant.menu" class="menu">
+          <p class="menu-info">Restaurant Menu Count :  {{ resmenu.count }}</p>
+          <p class="menu-info">Restaurant MenuType : {{ resmenu.restypes }}</p>
+          <div *ngFor="let dish of resmenu.dish" class="dish">
+            <p class="dish-info">DishName : {{ dish.dishName }}</p>
+            <p class="dish-info">DishPrice : {{ dish.price }}</p>
+            <div *ngFor="let offer of dish.offer" class="offer">
+              <p class="offer-info">Offer Name : {{ offer.offerName }}</p>
+              <p class="offer-info">Discount : {{ offer.discount }}</p>
+            </div>
+          </div>
+          <!-- <button (click)="editMenu(resmenu._id)">Edit</button> -->
+          <button (click)="deleteMenu(resmenu._id)">Delete Menu</button>
+        </div>
+      </div>
+      <h1>{{this.restaurant._id}}</h1>
+  
+      <div class="button">
+        <button class="delete-button" (click)="deleteList(this.restaurant._id)">Delete</button>
+        <button class="delete-button" >Edit</button>
+      </div>
+      
+    </div>
+  </div>
+  
+  
+  

@@ -1,0 +1,220 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h2 {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    margin: 0;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  .teams {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+ 
+  
+  label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  input {
+    margin-left: 10px;
+  }
+  
+  button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  .button button{
+    margin: 1rem;
+  }
+  
+  .restaurant-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .restaurant-container:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .delete-button {
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+  
+  .delete-button:hover {
+    background-color: #cc4c34;
+  }
+  
+  .restaurant-info {
+    margin-bottom: 20px;
+  }
+  
+  .menu-label {
+    font-weight: bold;
+  }
+  
+  .menu-info {
+    display: block;
+  }
+  
+  .dish-info {
+    display: block;
+    margin-left: 20px;
+  }
+  
+  .offer-info {
+    display: block;
+    margin-left: 40px;
+  }
+  
+  .delete-button {
+    margin-top: 10px;
+  }
+  .container {
+    /* padding: 20px; */
+    padding: 20px;
+   
+  }
+  
+  .restaurant-container {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .restaurant-info {
+    margin-bottom: 20px;
+  }
+  
+  .resname {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .menu-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .menu-info {
+    margin-bottom: 5px;
+  }
+  
+  .dish-info {
+    margin-left: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .offer-info {
+    margin-left: 40px;
+    margin-bottom: 5px;
+  }
+  
+  .delete-button {
+    margin-top: 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333;
+  }
+  .container {
+    padding: 20px;
+    
+  }
+  
+  .restaurant-container {
+    background-color: #c7c2c2;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .restaurant-info {
+    margin-bottom: 20px;
+  }
+  
+  .resname {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .menu-label {
+    font-weight: bold;
+    margin-bottom: 10px; /* Adjusted margin */
+  }
+  
+  .menu-info {
+    margin-bottom: 5px;
+  }
+  
+  .dish-info {
+    margin-left: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .offer-info {
+    margin-left: 40px;
+    margin-bottom: 5px;
+  }
+  
+  .delete-button {
+    margin-top: 15px; /* Adjusted margin */
+    background-color: #ff5e00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    background-color: #ff4a03;
+  }
+  .button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+    
