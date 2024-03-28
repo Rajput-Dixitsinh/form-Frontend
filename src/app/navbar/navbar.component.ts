@@ -1,18 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../services/users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
-        constructor(private UserService : UsersService) {}
+export class NavbarComponent implements OnInit {
+  isLoggedIn: any;
 
-        logout() {
-                this.UserService.Logout().subscribe((data: any)=>{
-                  console.log(data);
-                  
-                });
-        }
+  constructor(private userService: UsersService, private router: Router) { }
+
+  ngOnInit(): void {
+    this.isLoggedIn = this.userService.isLoggedIn();
+  }
+
+  logout(): void {
+    this.userService.Logout().subscribe(() => {
+      this.isLoggedIn = false;
+      this.router.navigate(['/login']);
+    });
+  }
 }

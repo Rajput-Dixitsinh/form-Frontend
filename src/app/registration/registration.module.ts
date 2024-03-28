@@ -12,7 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     RouterModule.forChild([
       { path: '', component: RegistrationComponent }
-    ])
+    ]) 
   ]
 })
 export class RegistrationModule { }

@@ -26,6 +26,13 @@ export class UsersService {
     return this.http.get<any>(`http://localhost:3000/logout`);
   }
 
+  resetPassword(token:any , oldPassword:any , newPassword : any ): Observable<any>{
+
+   const payload = { token:token, oldPassword:oldPassword, newPassword:newPassword}
+
+    return this.http.post<any>('http://localhost:3000/changePassword', payload);
+  }
+
   isLoggedIn(){
 
     if(localStorage.getItem('token') == 'undefined') {

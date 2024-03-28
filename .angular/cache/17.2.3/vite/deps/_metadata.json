@@ -1,49 +1,43 @@
 {
-  "hash": "3f88d8aa",
-  "configHash": "2bf5080c",
+  "hash": "983f69e8",
+  "configHash": "42ac0efe",
   "lockfileHash": "75445d87",
-  "browserHash": "6119a6ac",
+  "browserHash": "1f925666",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "43d21139",
+      "fileHash": "c1b8a65f",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "d2da5f64",
+      "fileHash": "d1058971",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "6c2e17f8",
+      "fileHash": "9cc56e3b",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "1b9ae880",
+      "fileHash": "f97575e5",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "4a2d5169",
-      "needsInterop": false
-    },
-    "@angular/platform-browser/animations/async": {
-      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/animations/async.mjs",
-      "file": "@angular_platform-browser_animations_async.js",
-      "fileHash": "e67b014c",
+      "fileHash": "c3f79d96",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "25563102",
+      "fileHash": "51f40fc3",
       "needsInterop": false
     }
   },
@@ -53,9 +47,6 @@
     },
     "chunk-ZAN7557F": {
       "file": "chunk-ZAN7557F.js"
-    },
-    "browser-MYRAE3Z7": {
-      "file": "browser-MYRAE3Z7.js"
     },
     "chunk-Z6CPQRJN": {
       "file": "chunk-Z6CPQRJN.js"
