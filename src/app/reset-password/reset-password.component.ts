@@ -32,6 +32,8 @@ export class ResetPasswordComponent {
     onSubmit(){
         if(this.restpswFrm.valid){
             const {oldPassword,newPassword} = this.restpswFrm.value;
+            // console.log(this.token.id);
+            
 
              if (!this.token) {
               console.error('Token is missing');

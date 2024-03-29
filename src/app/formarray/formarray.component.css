@@ -208,6 +208,19 @@ body {
     padding: 10px 20px;
     cursor: pointer;
   }
+  /* Button Container */
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Add space between buttons */
+  margin-top: 20px;
+}
+
+/* Styling for Buttons */
+button {
+  text-transform: uppercase;
+  margin: 0 5px; /* Add margin around buttons */
+}
+
   
   .delete-button:hover {
     background-color: #ff4a03;

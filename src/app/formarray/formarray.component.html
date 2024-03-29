@@ -1,110 +1,117 @@
 <form [formGroup]="restaurantForm" (submit)="onSubmit()">
-    <div>
-      <label for="resname">Enter Restaurant Name:</label>
-      <input type="text"  formControlName="resname" placeholder="Enter restaurant name">
-    </div>
-    <!-- menu -->
-    <div formArrayName="menu">
-      <div *ngFor="let menu of menuArray().controls; let menuIndex = index" [formGroupName]="menuIndex">
-        <div>
-          <label for="type">Enter Menu Type:</label>
-          <input type="text"  formControlName="restypes" placeholder="Enter menu type">
-        </div>
-        <div>
-          <label for="count">Enter Menu Count:</label>
-          <input type="text"  formControlName="count" placeholder="Enter menu count">
-        </div>
-          <!-- dish -->
-        
-  
-        <div formArrayName="dish">
-          <div *ngFor="let dish of getDishArray(menuIndex).controls; let dishIndex = index" [formGroupName]="dishIndex">
-            <div>
-              <label for="dishName">Enter Dish Name:</label>
-              <input type="text"  formControlName="dishName" placeholder="Enter dish name">
-            </div>
-            <div>
-              <label for="price">Enter Dish Price:</label>
-              <input type="text"  formControlName="price" placeholder="Enter Dish Price">
-            </div>
-           
-              <!-- offer -->
-            <div formArrayName="offer">
-              <div *ngFor="let offer of getOfferArray(menuIndex, dishIndex).controls; let offerIndex = index" [formGroupName]="offerIndex">
-                <div>
-                  <label for="offerName">Enter Offer Name:</label>
-                  <input type="text"  formControlName="offerName" placeholder="Enter offer name">
+  <div class="form-container">
+    <mat-card class="form-card">
+      <mat-card-header>
+        <mat-card-title>Restaurant Details</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter Restaurant Name</mat-label>
+          <input matInput formControlName="resname" placeholder="Enter restaurant name">
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+
+    <div formArrayName="menu" class="menu-container">
+      <mat-card class="menu-card" *ngFor="let menu of menuArray().controls; let menuIndex = index" [formGroupName]="menuIndex">
+        <mat-card-header>
+          <mat-card-title>Menu {{ menuIndex + 1 }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field appearance="fill">
+            <mat-label>Enter Menu Type</mat-label>
+            <input matInput formControlName="restypes" placeholder="Enter menu type">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Enter Menu Count</mat-label>
+            <input matInput formControlName="count" placeholder="Enter menu count">
+          </mat-form-field>
+          <div formArrayName="dish">
+            <mat-card class="dish-card" *ngFor="let dish of getDishArray(menuIndex).controls; let dishIndex = index" [formGroupName]="dishIndex">
+              <mat-card-header>
+                <mat-card-title>Dish {{ dishIndex + 1 }}</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <mat-form-field appearance="fill">
+                  <mat-label>Enter Dish Name</mat-label>
+                  <input matInput formControlName="dishName" placeholder="Enter dish name">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Enter Dish Price</mat-label>
+                  <input matInput formControlName="price" placeholder="Enter Dish Price">
+                </mat-form-field>
+                <div formArrayName="offer">
+                  <mat-card class="offer-card" *ngFor="let offer of getOfferArray(menuIndex, dishIndex).controls; let offerIndex = index" [formGroupName]="offerIndex">
+                    <mat-card-header>
+                      <mat-card-title>Offer {{ offerIndex + 1 }}</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                      <mat-form-field appearance="fill">
+                        <mat-label>Enter Offer Name</mat-label>
+                        <input matInput formControlName="offerName" placeholder="Enter offer name">
+                      </mat-form-field>
+                      <mat-form-field appearance="fill">
+                        <mat-label>Enter Discount</mat-label>
+                        <input matInput formControlName="discount" placeholder="Enter discount">
+                      </mat-form-field>
+                    </mat-card-content>
+                  </mat-card>
                 </div>
-                <div>
-                  <label for="discount">Enter Discount:</label>
-                  <input type="text"  formControlName="discount" placeholder="Enter discount">
-                </div>
-              
-  
-                 <!-- <div formArrayName="timestmp">
-                    <div *ngFor="let time of getTimestmpArray(menuIndex,dishIndex,offerIndex).controls ; let timeIndex = index" [formGroupName]="timeIndex">
-                      <div>
-                        <label for="timestmp">Enter TimeStemp:</label>
-                        <input type="text"  formControlName="timestmp" placeholder="Enter time">
-                      </div>
-                    </div>
-                 </div>
-                 <button type="button" (click)="addTimestmp(menuIndex, dishIndex,offerIndex)">Add time</button> -->
-              </div>
-              <button type="button" (click)="addOffer(menuIndex, dishIndex)">Add Offer</button>
-            </div>
-           
-  
+                <button type="button" mat-flat-button color="primary" (click)="addOffer(menuIndex, dishIndex)">Add Offer</button>
+              </mat-card-content>
+            </mat-card>
           </div>
-          <button type="button" (click)="addDish(menuIndex)">Add Dish</button>
-        </div>  
-        
-      </div>
+          <button type="button" mat-flat-button color="primary" (click)="addDish(menuIndex)">Add Dish</button>
+        </mat-card-content>
+      </mat-card>
     </div>
-    <div class="button">
-      <button type="button" (click)="addMenu()">Add Menu</button>
-      <button type="button" (click)="getRestList()">Fetch</button>
-      <button type="submit">Submit</button>
-    </div>
-   
-  </form>
-  
-  
-  
-  <!-- Display Data-->
-  
-  
-  
-  <div class="container" >
-    <h3>Total Data : {{this.xyz}}</h3>
-    <div *ngFor="let restaurant of getdata; let index = index" class="restaurant-container">
-      <div class="restaurant-info">
-        <h4 class="resname">Restaurant Name : {{ restaurant.resname }}</h4>
-        <p class="menu-label">Menu :</p>
-        <div *ngFor="let resmenu of restaurant.menu" class="menu">
-          <p class="menu-info">Restaurant Menu Count :  {{ resmenu.count }}</p>
-          <p class="menu-info">Restaurant MenuType : {{ resmenu.restypes }}</p>
-          <div *ngFor="let dish of resmenu.dish" class="dish">
-            <p class="dish-info">DishName : {{ dish.dishName }}</p>
-            <p class="dish-info">DishPrice : {{ dish.price }}</p>
-            <div *ngFor="let offer of dish.offer" class="offer">
-              <p class="offer-info">Offer Name : {{ offer.offerName }}</p>
-              <p class="offer-info">Discount : {{ offer.discount }}</p>
-            </div>
-          </div>
-          <!-- <button (click)="editMenu(resmenu._id)">Edit</button> -->
-          <button (click)="deleteMenu(resmenu._id)">Delete Menu</button>
-        </div>
-      </div>
-      <h1>{{this.restaurant._id}}</h1>
-  
-      <div class="button">
-        <button class="delete-button" (click)="deleteList(this.restaurant._id)">Delete</button>
-        <button class="delete-button" >Edit</button>
-      </div>
-      
+
+    <div class="button-container">
+      <button type="button" mat-raised-button color="primary" (click)="addMenu()">Add Menu</button>
+      <button type="button" mat-raised-button color="accent" (click)="getRestList()">Fetch</button>
+      <button type="submit" mat-raised-button color="primary">Submit</button>
     </div>
   </div>
-  
-  
-  
+</form>
+
+
+
+<!-- display data -->
+
+
+
+<div class="container">
+  <h3>Total Data: {{ xyz }}</h3>
+  <div *ngFor="let restaurant of getdata; let index = index" class="restaurant-container">
+    <h4 class="restaurant-name">Restaurant Name: {{ restaurant.resname }}</h4> <!-- Label for restaurant name -->
+    <mat-card class="restaurant-info">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <!-- <mat-card-title>{{ restaurant.resname }}</mat-card-title> -->
+        <!-- <mat-card-subtitle>Menu:</mat-card-subtitle> -->
+      </mat-card-header>
+      <mat-card-content>
+        <div *ngFor="let resmenu of restaurant.menu" class="menu">
+          <p class="menu-info">Restaurant Menu Count: {{ resmenu.count }}</p>
+          <p class="menu-info">Restaurant MenuType: {{ resmenu.restypes }}</p>
+          <div *ngFor="let dish of resmenu.dish" class="dish">
+            <p class="dish-info">Dish Name: {{ dish.dishName }}</p>
+            <p class="dish-info">Dish Price: {{ dish.price }}</p>
+            <div *ngFor="let offer of dish.offer" class="offer">
+              <p class="offer-info">Offer Name: {{ offer.offerName }}</p>
+              <p class="offer-info">Discount: {{ offer.discount }}</p>
+            </div>
+          </div>
+          <button mat-button (click)="deleteMenu(resmenu._id)">Delete Menu</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <!-- This section might need some modifications as per your requirements -->
+    <h1>{{ restaurant._id }}</h1>
+    <div class="button">
+      <button mat-raised-button color="warn" (click)="deleteList(restaurant._id)">Delete</button>
+      <button mat-raised-button color="primary">Edit</button>
+    </div>
+  </div>
+</div>
+

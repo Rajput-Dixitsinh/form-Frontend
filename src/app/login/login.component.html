@@ -1,13 +1,19 @@
-  
+
   <div class="container">
     <h2>Login Form</h2>
     <form [formGroup]="loginFrm" (submit)="onSubmit()">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" formControlName="email">
-
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" formControlName="password" >
-
-      <button type="submit" [disabled]="loginFrm.invalid">Submit</button>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" id="email" formControlName="email">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" id="password" formControlName="password">
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="loginFrm.invalid">Submit</button>
     </form>
   </div>
+  
+  
